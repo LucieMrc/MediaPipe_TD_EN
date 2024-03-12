@@ -89,16 +89,16 @@ It is best to turn off `Show overlays` in the MediaPipe node to hide every detec
 ## Using the data
 
 ![Screenshot de l'interface de TD](./images/gif1.gif)
- 
-On peux par exemple récupérer la position du "pinch" (le pincée entre le pouce et l'index), et l'écart mesuré. On crée un `select` TOP sur la sortie "helpers" (la 4ème), et on sélectionne " h1:pinch_midpoint:distance" (l'écart entre les doigts), "h1:pinch_midpoint:x" et "h1:pinch_midpoint:y" (la position x et y du milieu de l'écart entre les doigts).
+
+We can for example get the position of the "pinch" (between thumb and index), and the distance measured.
+We create a `select` TOP on the "helpers" (4th) output, and we select "h1:pinch_midpoint:distance" (distance between the fingers), "h1:pinch_midpoint:x" and "h1:pinch_midpoint:y (the x and y position of the midpoint of the distance between the fingers).
+
 ![Screenshot de l'interface de TD](./images/screen16.png)
 
 la valeur 0,0 sur une image sur touch c'est le milieu de l'image, sur mediapipe 0,0 c'est en bas à gauche.
 
 
-
-
 ![Screenshot de l'interface de TD](./images/screen15.png)
 
 
-recalculer les données y en 3d : faire un select avec "*:y" ( * = tout, $:y = tout ce qui finit par y )# MediaPipe_TD
+recalculer les données y en 3d : faire un select avec "*:y" ( * = tout, $:y = tout ce qui finit par y )
