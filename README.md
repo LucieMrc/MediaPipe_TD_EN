@@ -19,6 +19,23 @@ The [download link](https://github.com/torinmb/mediapipe-touchdesigner/releases)
 ![Screenshot de l'interface de TD](./images/screen1.png)
 *The example file MediaPipeTouchdesigner.toe.*
 
+MediaPipe can therefore track hands, faces, parts of the body.
+
+<details>
+    <Summary>
+Les usages : exemples
+    </Summary>
+
+https://github.com/user-attachments/assets/466b417f-35ff-4fdf-91bf-47f5a52e5d09
+
+*Exemple de post instagram de [@pepepepebrick](https://www.instagram.com/pepepepebrick/?hl=fr)*
+
+https://github.com/user-attachments/assets/58d47cc1-69da-4908-8195-8de0e032cb36
+
+*Exemple de post instagram de [@poetengineer](https://www.instagram.com/the.poet.engineer/?hl=fr)*
+
+</details>
+
 ## The file MediaPipeTouchdesigner.toe
 
 ![Screenshot de l'interface de TD](./images/screen31.png)
@@ -29,9 +46,14 @@ The MediaPipe node contains a lot of the things that makes it work, but we won't
 
 ![Screenshot de l'interface de TD](./images/screen2.png)
 
+This node gets and initializes all the trackings, we link it to the other specific nodes that filter and sort the data.
+
+This node also allows you to activate and deactivate the tracking that you don't use to save computing power.
+You should only deactivate every tracking that you don't use in the project.
+
 ### B. Realtime informations
 
-The first output of the MediaPipe node is a CHOP that allows us to check the informations of time and delays.
+The first output of the MediaPipe node is a CHOP that allows us to check the informations of time, delays and project performances.
 
 ### C. Face, hands and skeleton tracking
 
@@ -39,7 +61,7 @@ The tracking of one or multiple persons' faces with the node face_tracking allow
 
 ![Screenshot de l'interface de TD](./images/screen7.png)
 
-The tracking of hands with the node hand_tracking allows us to get the position of both hands and theirs points, as well as a 3D render.
+The tracking of hands with the node hand_tracking allows us to get the position of both hands and theirs points, as well as a 3D render. We can only track 2 hands.
 
 ![Screenshot de l'interface de TD](./images/screen8.png)
 
@@ -56,25 +78,23 @@ The "skeleton" tracking with the node pose_tracking allows us to get the positio
 
 ### D. Objects and faces detection
 
-The detection and classification of objects with the node object_tracking1 is used to "see" objects on the video and recognize them with more or less confidence. It does not works very well.
-
+The detection and classification of objects with the node object_tracking1 is used to "see" objects on the video and recognize them with more or less confidence.
 ![Screenshot de l'interface de TD](./images/screen12.png)
 
 ![Screenshot de l'interface de TD](./images/screen6.png)
 *Here my phone being detected with only 55% confidence*
 
-The face_detector1 node is used to detect faces and get the positions of each points.
+The face_detector1 node is used to detect faces and get the positions of each points. It is a more light and simple detection than the face_tracking node, and we can detect up to 10 faces.
 
 ![Screenshot de l'interface de TD](./images/screen13.png)
 
-The image_classification node tries to recognize objects on the image. It does not works very well.
+The image_classification node tries to recognize objects on the image. It does not works very well in the sense that the classification rarely works well, and when it is working the confidence is quite low.
 
 ![Screenshot de l'interface de TD](./images/screen14.png)
 
-
 ### E. The Virtual Webcam Chain
 
-I am not sure yet of the use of the Virtual Webcam Chain, but you can turn on the camera in the first node, the videodevin.
+The Virtual Webcam Chain is used to do post processing outside of TouchDesigner (in OBS for example) and re-integrate the video flux in TD.
 
 ### F. The node image_segmentation
 
@@ -157,7 +177,7 @@ Here, I divide by 2 the channel so the circle is smaller.
 
 There is severals ways of moving elements in 3D with MediaPipe coordinates. We choose the most suitable way depending on the number of elements, interaction between them and specific parameters of these elements.
 
-Here, I show them from the easiest to the most complicated.
+Here, I show them from the easiest to the most complicated : [data links](#data-links), [instanciation](#instaciation), [Replicator](#replicator).
 
 There is two common steps to the three methods :
 - Modifying the parameters in the `Camera` COMP so the elements can be perfectly on top of the webcam image.
