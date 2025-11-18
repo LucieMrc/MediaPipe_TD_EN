@@ -474,3 +474,5 @@ Notes:
 # To go further
 
 <!-- recalculer les données y en 3d : faire un select avec "*:y" ( * = tout, *:y = tout ce qui finit par y)-->
+
+- Separate the background and [Dither yourself](https://github.com/LucieMrc/Dither_touchdesigner)
